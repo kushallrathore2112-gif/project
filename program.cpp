@@ -22,25 +22,27 @@ class Student {
     }  
 
     void menu(){
-        cout<<"1. student"<<endl
-            <<"2. Admin"<<endl;
+        cout<<"1. Student"<<endl;
+        cout<<"2. Admin"<<endl;
+        cout<<"3. Exit"<<endl;
+        cout<<"Enter your choice :";
         cin>>choice;
     }
     void display()
     {
-      cout<<"Enter Student ID :"<<endl;
+      cout<<"Enter Student ID :";
       cin>>student_id;
 
-      cout<<"Enter Student Name :"<<endl;
+      cout<<"Enter Student Name :";
       cin>>student_name;
 
-      cout<<"Enter Room no :"<<endl;
+      cout<<"Enter Room no :";
        cin>>room_no;
 
-      cout<<"Enter Hostel Name :"<<endl;
+      cout<<"Enter Hostel Name :";
       cin>>hostel_name;
 
-      cout<<"Enter Your Complaint: "<<endl;
+      cout<<"Enter Your Complaint: ";
       cin>>complaint;
     }
 
@@ -75,10 +77,17 @@ int main(){
             s1.display();
             
         }
-        else{
+
+        if (choice == 2)
+        {
             s1.admin();
         }
-        
+        else if(choice==3){
+            cout<<"Exit"<<endl;
+            break;
+        }
+       
+
 
     }
     
