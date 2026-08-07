@@ -135,7 +135,7 @@ int main()
         }
         else if (choice == 3)
         {
-            cout << "Thank you!\n";
+            cout << "Thank you\n";
             break;
         }
         else
