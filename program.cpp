@@ -188,7 +188,7 @@ int main()
         }
         else
         {
-            cout << "Invalid choice";
+            cout <<"invalid";
         }
     }
-}
+} 
