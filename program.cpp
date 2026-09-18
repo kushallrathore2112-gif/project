@@ -32,37 +32,37 @@ public:
     }
 
     void studentmenu()
-{
-    int ch;
-
-    while (true)
     {
-        cout << "\n-------------------------------- Student Menu --------------------------------\n"
-             << endl;
-        cout << "1. Register Complaint" << endl;
-        cout << "2. Check Complaint Status" << endl;
-        cout << "3. Back" << endl;
-        cout << "Enter your choice: ";
-        cin >> ch;
+        int ch;
 
-        if (ch == 1)
+        while (true)
         {
-            display();
-        }
-        else if (ch == 2)
-        {
-            viewstatus();
-        }
-        else if (ch == 3)
-        {
-            break;
-        }
-        else
-        {
-            cout << "Invalid choice!" << endl;
+            cout << "\n-------------------------------- Student Menu --------------------------------\n"
+                 << endl;
+            cout << "1. Register Complaint" << endl;
+            cout << "2. Check Complaint Status" << endl;
+            cout << "3. Back" << endl;
+            cout << "Enter your choice: ";
+            cin >> ch;
+
+            if (ch == 1)
+            {
+                display();
+            }
+            else if (ch == 2)
+            {
+                viewstatus();
+            }
+            else if (ch == 3)
+            {
+                break;
+            }
+            else
+            {
+                cout << "Invalid choice!" << endl;
+            }
         }
     }
-}
 
     void menu()
     {
@@ -131,38 +131,38 @@ public:
             cout << "Invalid choice!\n";
         }
     }
-void adminmenu()
-{
-    int ch;
-
-    while (true)
+    void adminmenu()
     {
-        cout << "\n-------------------------------- Admin Menu --------------------------------\n"
-             << endl;
-        cout << "1. See Complaint" << endl;
-        cout << "2. Update Status" << endl;
-        cout << "3. Back" << endl;
-        cout << "Enter your choice: ";
-        cin >> ch;
+        int ch;
 
-        if (ch == 1)
+        while (true)
         {
-            admin();
-        }
-        else if (ch == 2)
-        {
-            updatestatus();
-        }
-        else if (ch == 3)
-        {
-            break;
-        }
-        else
-        {
-            cout << "Invalid choice!" << endl;
+            cout << "\n-------------------------------- Admin Menu --------------------------------\n"
+                 << endl;
+            cout << "1. See Complaint" << endl;
+            cout << "2. Update Status" << endl;
+            cout << "3. Back" << endl;
+            cout << "Enter your choice: ";
+            cin >> ch;
+
+            if (ch == 1)
+            {
+                admin();
+            }
+            else if (ch == 2)
+            {
+                updatestatus();
+            }
+            else if (ch == 3)
+            {
+                break;
+            }
+            else
+            {
+                cout << "Invalid choice!" << endl;
+            }
         }
     }
-}
 };
 
 int main()
@@ -188,7 +188,7 @@ int main()
         }
         else
         {
-            cout <<"invalid";
+            cout << "invalid";
         }
     }
-} 
+}
