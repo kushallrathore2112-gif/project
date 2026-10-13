@@ -1,123 +1,34 @@
 #include <iostream>
-#include <fstream>
-#include <string>
-
 using namespace std;
-
 int choice;
 
 class Student
 {
+
 private:
-    int student_id = 0;
+    int student_id;
     string student_name;
     string hostel_name;
-    int room_no = 0;
+    int room_no;
     string complaint;
     string status = "Pending";
 
-    void showComplaintForm(ostream& out)
-    {
-        out << "==================================================\n";
-        out << "           HOSTEL COMPLAINT FORM\n";
-        out << "==================================================\n";
-        out << "Student ID   : " << student_id << '\n';
-        out << "Student Name : " << student_name << '\n';
-        out << "Hostel Name  : " << hostel_name << '\n';
-        out << "Room Number  : " << room_no << '\n';
-        out << "Complaint    : " << complaint << '\n';
-        out << "Status       : " << status << '\n';
-        out << "==================================================\n\n";
-    }
-
-    bool saveComplaint()
-    {
-        // Append a newly confirmed complaint to the file.
-        ofstream file("complaints.txt", ios::app);
-
-        if (!file)
-        {
-            cout << "Could not open complaints.txt. The complaint was not saved.\n";
-            return false;
-        }
-
-        showComplaintForm(file);
-        return true;
-    }
-
-    void saveUpdatedComplaint()
-    {
-        // This program stores one complaint, so replace the old form
-        // with the same complaint and its updated status.
-        ofstream file("complaints.txt", ios::trunc);
-
-        if (!file)
-        {
-            cout << "Could not update complaints.txt.\n";
-            return;
-        }
-
-        showComplaintForm(file);
-        cout << "Complaint status saved to complaints.txt.\n";
-    }
-
 public:
+    Student()
+    {
+        student_id = 0;
+        student_name = "";
+        hostel_name = "";
+        room_no = 0;
+    }
+
     void viewstatus()
     {
-        cout << "\n------ Complaint Status ------\n";
-        cout << "Student ID   : " << student_id << '\n';
-        cout << "Student Name : " << student_name << '\n';
-        cout << "Complaint    : " << complaint << '\n';
-        cout << "Status       : " << status << '\n';
-    }
-
-    void display()
-    {
-        while (true)
-        {
-            cout << "\nEnter Student ID: ";
-            cin >> student_id;
-
-            cout << "Enter Student Name: ";
-            cin >> ws;
-            getline(cin, student_name);
-
-            cout << "Enter Room Number: ";
-            cin >> room_no;
-
-            cout << "Enter Hostel Name: ";
-            cin >> ws;
-            getline(cin, hostel_name);
-
-            cout << "Enter Your Complaint: ";
-            getline(cin, complaint);
-
-            cout << "\n----------- Preview Complaint Form -----------\n";
-            showComplaintForm(cout);
-
-            int confirm;
-            cout << "1. Yes, confirm and save\n";
-            cout << "2. No, edit the information\n";
-            cout << "Choice: ";
-            cin >> confirm;
-
-            if (confirm == 1)
-            {
-                if (saveComplaint())
-                {
-                    cout << "\nComplaint confirmed and saved to complaints.txt.\n";
-                }
-                break;
-            }
-            else if (confirm == 2)
-            {
-                cout << "\nPlease enter your information again.\n";
-            }
-            else
-            {
-                cout << "Invalid choice. Please review the preview again.\n";
-            }
-        }
+        cout << "\n------ Complaint Status ------" << endl;
+        cout << "Student ID   : " << student_id << endl;
+        cout << "Student Name : " << student_name << endl;
+        cout << "Complaint    : " << complaint << endl;
+        cout << "Status       : " << status << endl;
     }
 
     void studentmenu()
@@ -126,10 +37,11 @@ public:
 
         while (true)
         {
-            cout << "\n---------------- Student Menu ----------------\n";
-            cout << "1. Register Complaint\n";
-            cout << "2. Check Complaint Status\n";
-            cout << "3. Back\n";
+            cout << "\n-------------------------------- Student Menu --------------------------------\n"
+                 << endl;
+            cout << "1. Register Complaint" << endl;
+            cout << "2. Check Complaint Status" << endl;
+            cout << "3. Back" << endl;
             cout << "Enter your choice: ";
             cin >> ch;
 
@@ -147,32 +59,54 @@ public:
             }
             else
             {
-                cout << "Invalid choice!\n";
+                cout << "Invalid choice!" << endl;
             }
         }
     }
 
     void menu()
     {
-        cout << "\n--------- Hostel Complaint Management System ---------\n";
-        cout << "1. Student\n";
-        cout << "2. Admin\n";
-        cout << "3. Exit\n";
-        cout << "Enter your choice: ";
+        cout << "\n--------------------------------Hostel Complaint Management System----------------------------\n"
+             << endl;
+        cout << "1. Student" << endl;
+        cout << "2. Admin" << endl;
+        cout << "3. Exit" << endl;
+        cout << "Enter your choice :";
         cin >> choice;
+    }
+    void display()
+    {
+        cout << "Enter Student ID :";
+        cin >> student_id;
+
+        cout << "Enter Student Name :";
+        cin >> student_name;
+
+        cout << "Enter Room no :";
+        cin >> room_no;
+
+        cout << "Enter Hostel Name :";
+        cin >> hostel_name;
+
+        cout << "Enter Your Complaint: ";
+        cin.ignore();
+        getline(cin, complaint);
+
+        cout << "\n--------------------------------complaint registered successfully--------------------------------\n"
+             << endl;
     }
 
     void admin()
     {
-        cout << "\n--------- Complaint Details ---------\n";
-        cout << "Student Name : " << student_name << '\n';
-        cout << "Student ID   : " << student_id << '\n';
-        cout << "Hostel Name  : " << hostel_name << '\n';
-        cout << "Room Number  : " << room_no << '\n';
-        cout << "Complaint    : " << complaint << '\n';
-        cout << "Status       : " << status << '\n';
+        cout << "\n-------------------------------- Complaint Details --------------------------------\n"
+             << endl;
+        cout << "Student Name : " << student_name << endl;
+        cout << "Student ID : " << student_id << endl;
+        cout << "Hostel Name : " << hostel_name << endl;
+        cout << "Room No : " << room_no << endl;
+        cout << "Complaint : " << complaint << endl;
+        cout << "Status : " << status << endl;
     }
-
     void updatestatus()
     {
         int ch;
@@ -181,34 +115,33 @@ public:
         cout << "1. Pending\n";
         cout << "2. Completed\n";
         cout << "Choice: ";
+
         cin >> ch;
 
         if (ch == 1)
         {
             status = "Pending";
-            saveUpdatedComplaint();
         }
         else if (ch == 2)
         {
             status = "Completed";
-            saveUpdatedComplaint();
         }
         else
         {
             cout << "Invalid choice!\n";
         }
     }
-
     void adminmenu()
     {
         int ch;
 
         while (true)
         {
-            cout << "\n---------------- Admin Menu ----------------\n";
-            cout << "1. See Complaint\n";
-            cout << "2. Update Status\n";
-            cout << "3. Back\n";
+            cout << "\n-------------------------------- Admin Menu --------------------------------\n"
+                 << endl;
+            cout << "1. See Complaint" << endl;
+            cout << "2. Update Status" << endl;
+            cout << "3. Back" << endl;
             cout << "Enter your choice: ";
             cin >> ch;
 
@@ -226,7 +159,7 @@ public:
             }
             else
             {
-                cout << "Invalid choice!\n";
+                cout << "Invalid choice!" << endl;
             }
         }
     }
@@ -250,14 +183,12 @@ int main()
         }
         else if (choice == 3)
         {
-            cout << "\nThank you.\n";
+            cout << "\n--------------------------------Thank you-------------------------------\n";
             break;
         }
         else
         {
-            cout << "Invalid choice!\n";
+            cout << "invalid";
         }
     }
-
-    return 0;
 }
